@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useAtom } from "jotai";
+import { currentProjectAtom, projects } from "./Project";
 
 const Section = (props) => {
   const { children } = props;
@@ -24,20 +26,22 @@ const Section = (props) => {
   );
 };
 
-export const Interface = () => {
+export const Interface = (props) => {
+  const { setSection } = props;
+
   return (
     <div className="flex flex-col items-center w-screen">
-      <AboutSection />
+      <AboutSection setSection={setSection} />
       <SkillsSection />
-      <Section>
-        <h1>Projects</h1>
-      </Section>
+      <ProjectsSection />
       <ContactSection />
     </div>
   );
 };
 
-const AboutSection = () => {
+const AboutSection = (props) => {
+  const { setSection } = props;
+
   return (
     <Section>
       <h1 className="text-5xl font-extrabold leading-snug">
@@ -69,6 +73,7 @@ const AboutSection = () => {
         to the world of technology.
       </motion.p>
       <motion.button
+		onClick={() => setSection(3)}
         className={`bg-indigo-600 text-white py-4 px-8
 	  rounded-lg font-bold text-lg mt-16`}
         initial={{
@@ -135,12 +140,12 @@ const SkillsSection = () => {
   return (
     <Section>
       <motion.div whileInView={"visible"}>
-        <h2 className="text-4xl font-bold">Skills</h2>
+        <h2 className="text-4xl font-bold text-white">Skills</h2>
         <div className="mt -8 space-y4">
           {skills.map((skill, index) => (
             <div className="w-64" key={index}>
               <motion.h3
-                className="text-xl font-bold text-gray800"
+                className="text-xl font-bold text-gray-100"
                 initial={{
                   opacity: 0,
                 }}
@@ -179,51 +184,83 @@ const SkillsSection = () => {
           ))}
         </div>
         <div>
-          <h2 className="text-4xl font-bold mt-10">Languages</h2>
+          <h2 className="text-4xl font-bold mt-10 text-white">Languages</h2>
           <div className="mt-8 space-y-4">
             {languages.map((lng, index) => (
               <div className="w-64" key={index}>
-              <motion.h3
-                className="text-xl font-bold text-gray800"
-                initial={{
-                  opacity: 0,
-                }}
-                variants={{
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      duration: 1,
-                      delay: 2 + index * 0.2,
-                    },
-                  },
-                }}
-              >
-                {lng.title}
-              </motion.h3>
-              <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
-                <motion.div
-                  className="h-full bg-indigo-500 rounded-full"
-                  style={{ width: `${lng.level}%` }}
+                <motion.h3
+                  className="text-xl font-bold text-gray-100"
                   initial={{
-                    scaleX: 0,
-                    originX: 0,
+                    opacity: 0,
                   }}
                   variants={{
                     visible: {
-                      scaleX: 1,
+                      opacity: 1,
                       transition: {
                         duration: 1,
                         delay: 2 + index * 0.2,
                       },
                     },
                   }}
-                />
+                >
+                  {lng.title}
+                </motion.h3>
+                <div className="h-2 w-full bg-gray-200 rounded-full mt-2">
+                  <motion.div
+                    className="h-full bg-indigo-500 rounded-full"
+                    style={{ width: `${lng.level}%` }}
+                    initial={{
+                      scaleX: 0,
+                      originX: 0,
+                    }}
+                    variants={{
+                      visible: {
+                        scaleX: 1,
+                        transition: {
+                          duration: 1,
+                          delay: 2 + index * 0.2,
+                        },
+                      },
+                    }}
+                  />
+                </div>
               </div>
-            </div>
             ))}
           </div>
         </div>
       </motion.div>
+    </Section>
+  );
+};
+
+const ProjectsSection = () => {
+  const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
+
+  const nextProject = () => {
+    setCurrentProject((currentProject + 1) % projects.length);
+  };
+
+  const previousProject = () => {
+    setCurrentProject((currentProject - 1 + projects.length) % projects.length);
+  };
+
+  return (
+    <Section>
+      <div className="flex w-full h-full gap-8 items-center justify-center">
+        <button
+          className="hover:text-indigo-600 transition-colors"
+          onClick={previousProject}
+        >
+          ← Previous
+        </button>
+        <h2 className="text-5xl font-bold">Projects</h2>
+        <button
+          className="hover:text-indigo-600 transition-colors"
+          onClick={nextProject}
+        >
+          Next →
+        </button>
+      </div>
     </Section>
   );
 };
