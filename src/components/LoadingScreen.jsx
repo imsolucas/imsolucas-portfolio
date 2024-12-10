@@ -27,9 +27,9 @@ export const LoadingScreen = (props) => {
             width: `${progress}%`,
           }}
         >
-          Lucas
+          Deng Yi Jin, Lucas
         </div>
-        <div className="opacity-40">Lucas</div>
+        <div className="opacity-40">Deng Yi Jin, Lucas</div>
       </div>
     </div>
   );
