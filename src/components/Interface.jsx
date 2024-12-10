@@ -124,7 +124,7 @@ const skills = [
 	level: 75,
   },
   {
-	tile: "C / C++",
+	title: "C / C++",
 	level: 80, 
   }
 ];
