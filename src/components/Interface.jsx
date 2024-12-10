@@ -119,6 +119,14 @@ const skills = [
     title: "3D Modeling",
     level: 40,
   },
+  {
+	title: "Game Development",
+	level: 75,
+  },
+  {
+	tile: "C / C++",
+	level: 80, 
+  }
 ];
 const languages = [
   {
