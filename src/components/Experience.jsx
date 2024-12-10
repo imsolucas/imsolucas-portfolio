@@ -16,7 +16,6 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { framerMotionConfig } from "../config";
-import * as THREE from "three";
 import { Projects } from "./Project";
 import { Background } from "./Background";
 
@@ -81,7 +80,6 @@ export const Experience = (props) => {
       <Background />
       <motion.group
         ref={characterGroup}
-        // position={[1.9072935059634513, 0.14400000000000002, 2.681801948466054]}
         rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
         scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
         animate={"" + section}

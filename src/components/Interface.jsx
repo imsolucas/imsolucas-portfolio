@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Project";
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm, ValidationError } from "@formspree/react";
 
 const Section = (props) => {
   const { children, mobileTop } = props;
@@ -48,12 +48,11 @@ const AboutSection = (props) => {
   return (
     <Section mobileTop>
       <h1 className="text-3xl md:text-5xl font-extrabold leading-snug mt-8 md:mt-0">
-        Hi, I'm
-        <br />
+        <span className="block mb-4">Hi, I'm</span>
         <span className="bg-white px-1 italic">Deng Yi Jin, Lucas</span>
       </h1>
       <motion.p
-        className="text-lg text-gray-600 mt-4"
+        className="text-lg text-[#59331A] mt-4"
         initial={{
           opacity: 0,
           y: 25,
@@ -67,9 +66,7 @@ const AboutSection = (props) => {
           delay: 1.5,
         }}
       >
-        I used to work as a full-stack developer at ELVTD
-        <br />
-        and currently still a student of 42 Kuala Lumpur.
+        I'm a student of 42 Kuala Lumpur.
         <br />
         I'm passionate on bringing the next young generation
         <br />
@@ -77,7 +74,7 @@ const AboutSection = (props) => {
       </motion.p>
       <motion.button
         onClick={() => setSection(3)}
-        className={`bg-indigo-600 text-white py-4 px-8
+        className={`bg-[#008000] text-[#F0F0F0] py-4 px-8
 	  rounded-lg font-bold text-lg mt-4 md:mt-16`}
         initial={{
           opacity: 0,
@@ -120,17 +117,17 @@ const skills = [
     level: 40,
   },
   {
-	title: "Game Development",
-	level: 75,
+    title: "Game Development",
+    level: 75,
   },
   {
-	title: "C / C++",
-	level: 80, 
+    title: "C / C++",
+    level: 80,
   },
   {
-	title: "Python",
-	level: 60,
-  }
+    title: "Python",
+    level: 60,
+  },
 ];
 const languages = [
   {
@@ -199,7 +196,9 @@ const SkillsSection = () => {
           ))}
         </div>
         <div>
-          <h2 className="text-2xl md:text-4xl font-bold mt-10 text-white">Languages</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mt-10 text-white">
+            Languages
+          </h2>
           <div className="mt-8 space-y-4">
             {languages.map((lng, index) => (
               <div className="w-64" key={index}>
@@ -281,66 +280,66 @@ const ProjectsSection = () => {
 };
 
 const ContactSection = () => {
-	const [state, handleSubmit] = useForm("mvgonqwq");
-	return (
-	  <Section>
-		<h2 className="text-3xl md:text-5xl font-bold">Contact me</h2>
-		<div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full">
-		  {state.succeeded ? (
-			<p className="text-gray-900 text-center">Thanks for your message !</p>
-		  ) : (
-			<form onSubmit={handleSubmit}>
-			  <label for="name" className="font-medium text-gray-900 block mb-1">
-				Name
-			  </label>
-			  <input
-				type="text"
-				name="name"
-				id="name"
-				className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-			  />
-			  <label
-				for="email"
-				className="font-medium text-gray-900 block mb-1 mt-8"
-			  >
-				Email
-			  </label>
-			  <input
-				type="email"
-				name="email"
-				id="email"
-				className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-			  />
-			  <ValidationError
-				className="mt-1 text-red-500"
-				prefix="Email"
-				field="email"
-				errors={state.errors}
-			  />
-			  <label
-				for="email"
-				className="font-medium text-gray-900 block mb-1 mt-8"
-			  >
-				Message
-			  </label>
-			  <textarea
-				name="message"
-				id="message"
-				className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
-			  />
-			  <ValidationError
-				className="mt-1 text-red-500"
-				errors={state.errors}
-			  />
-			  <button
-				disabled={state.submitting}
-				className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 "
-			  >
-				Submit
-			  </button>
-			</form>
-		  )}
-		</div>
-	  </Section>
-	);
-  };
+  const [state, handleSubmit] = useForm("mvgonqwq");
+  return (
+    <Section>
+      <h2 className="text-3xl md:text-5xl font-bold">Contact me</h2>
+      <div className="mt-8 p-8 rounded-md bg-white bg-opacity-50 w-96 max-w-full">
+        {state.succeeded ? (
+          <p className="text-gray-900 text-center">Thanks for your message !</p>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <label for="name" className="font-medium text-gray-900 block mb-1">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+            />
+            <label
+              for="email"
+              className="font-medium text-gray-900 block mb-1 mt-8"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+            />
+            <ValidationError
+              className="mt-1 text-red-500"
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
+            <label
+              for="email"
+              className="font-medium text-gray-900 block mb-1 mt-8"
+            >
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
+            />
+            <ValidationError
+              className="mt-1 text-red-500"
+              errors={state.errors}
+            />
+            <button
+              disabled={state.submitting}
+              className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 "
+            >
+              Submit
+            </button>
+          </form>
+        )}
+      </div>
+    </Section>
+  );
+};
