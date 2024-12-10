@@ -126,6 +126,10 @@ const skills = [
   {
 	title: "C / C++",
 	level: 80, 
+  },
+  {
+	title: "Python",
+	level, 60,
   }
 ];
 const languages = [
