@@ -68,9 +68,9 @@ const AboutSection = (props) => {
       >
         I'm a student from 42 Kuala Lumpur.
         <br />
-        I'm passionate on bringing the next young generation
+		I'm passionate about bringing the next young generation
         <br />
-        to the world of technology.
+        into the world of technology.
       </motion.p>
       <motion.button
         onClick={() => setSection(3)}
