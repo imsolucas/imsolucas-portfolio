@@ -66,7 +66,7 @@ const AboutSection = (props) => {
           delay: 1.5,
         }}
       >
-        I'm a student of 42 Kuala Lumpur.
+        I'm a student from 42 Kuala Lumpur.
         <br />
         I'm passionate on bringing the next young generation
         <br />
