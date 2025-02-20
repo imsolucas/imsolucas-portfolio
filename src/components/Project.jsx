@@ -34,7 +34,7 @@ export const projects = [
   {
 	title: "Cub3D",
 	url: "https://github.com/imsolucas/Cub3D",
-	image: "projects/cub3d.png",
+	image: "projects/cub3D.png",
 	description: "A simple 3D game",
   }
 ];
