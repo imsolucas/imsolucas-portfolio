@@ -8,10 +8,10 @@ import { useEffect, useRef } from "react";
 
 export const projects = [
   {
-    title: "Decademy",
-    url: "https://ethglobal.com/showcase/decademy-8g59p",
-    image: "projects/decademy.png",
-    description: "DAO-like Education Platform",
+    title: "AI Food Planner",
+    url: "https://ai-food-planner-one.vercel.app/",
+    image: "projects/ai-food-planner.png",
+    description: "Having trouble deciding what to eat? Let AI help you!",
   },
   {
     title: "Minishell",
@@ -30,6 +30,12 @@ export const projects = [
 	url: "https://imsolucas-portfolio.vercel.app/",
 	image: "projects/portfolio.png",
 	description: "This website!",
+  },
+  {
+	title: "Cub3D",
+	url: "https://github.com/imsolucas/Cub3D",
+	image: "projects/cub3d.png",
+	description: "A simple 3D game",
   }
 ];
 
